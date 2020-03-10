@@ -26,25 +26,46 @@ namespace HelloWorld
                         break;
                 }
 
-            {
-                Console.WriteLine("Howdy Y'all!!");
-                Console.WriteLine("Good Morning");
-                Console.WriteLine("Good Morning Don't ya know");
-            }
+            // What is your name
+                Console.ReadLine();
+                Console.WriteLine("What is your name?");
+                var name = Console.ReadLine();
+                Console.WriteLine($"Welcome to the animal section, {name}. What's your favorite color?");
+                string colorChoice = Console.ReadLine();
+
+                Random rnd = new Random();
+                int randomNumber = rnd.Next(0, 5);
 
             var animals = new string[] { "Triceratops", "Gorilla", "Corgi", "Toucan" };
+            var randomAnimal = animals[randomNumber];
+            Console.WriteLine($"{colorChoice} is an excellent choice. Would you like to have a {colorChoice} {randomAnimal}?");
+            Console.ReadLine();
 
             foreach (var animal in animals)
             {
-                if ( animal ==  "Triceratops" || animal == "Gorilla")
+                var counter = 0;
+                foreach (var currentCharacter in animal)
                 {
-                Console.WriteLine(animal);
+                    if (currentCharacter == 'a' || currentCharacter == 'e' || currentCharacter == 'i' || currentCharacter == 'o' || currentCharacter == 'u' || currentCharacter == 'y')
+                    {
+                        counter++;
+                    }
+                }
+                if (counter >= 2)
+                {
+                    Console.WriteLine(animal);
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("too few syllables");
+                    Console.ReadLine();
                 }
             }
 
-
-            
-                Console.ReadKey(); // What happens if you run the app without this line? // this makes you enter a key
         }
     }
 }
+
+
+
